@@ -49,12 +49,16 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
 // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-let token = params.token; // "some_value"
-window.onload = function (){
-  if (0 < token.length)
-  {
-    setCookie("token",token, 1);
-    window.location.replace("./UserList.html");
+if (params.token == null) {
+  //do nothing
+} else {
+  let token = params.token; // "some_value"
+  window.onload = function (){
+    if (0 < token.length)
+    {
+      setCookie("token",token, 1);
+      window.location.replace("./UserList.html");
+    }
   }
 }
     </script>
