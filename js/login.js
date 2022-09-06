@@ -82,7 +82,7 @@ async function logout() {
       }
     });
     await response;
-    if (resp.ok){
+    if (response.ok){
         verified = true;
     }
     else {
