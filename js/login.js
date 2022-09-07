@@ -1,7 +1,7 @@
 /* https://www.w3schools.com/js/js_cookies.asp */
-function setCookie(cname, cvalue, exdays) {
+function setCookie(cname, cvalue, exhours) {
     const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    d.setTime(d.getTime() + (exhours*60*60*1000));
     let expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";Secure;path=/";
   }
@@ -81,7 +81,7 @@ async function logout() {
       }
     });
     await response;
-    if (resp.ok){
+    if (response.ok){
         verified = true;
     }
     else {
@@ -89,3 +89,10 @@ async function logout() {
     }
     return verified;
   }
+
+  async function refresh(){
+    await refreshToken();
+    setTimeout(refresh, (/*59**/60*1000));
+    let token = getCookie("token");
+    document.getElementById("top").textContent = "Token: " + token;
+}

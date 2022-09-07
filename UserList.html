@@ -3,8 +3,10 @@
     <h1 id="top">
         Not Logged In
     </h1>
+    <h4 id="list"></h4>
     <a href="#" onClick="refresh()" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Refreshme</a>
     <script src="./js/login.js"></script>
+    <script src="./js/userList.js"></script>
     <script>
 
 window.onload = async function (){
@@ -16,13 +18,6 @@ window.onload = async function (){
         document.getElementById("top").textContent = "Token: " + token;
     }
 };
-
-//refresh not working due to cors error
-async function refresh(){
-    await refreshToken();
-    let token = getCookie("token");
-    document.getElementById("top").textContent = "Token: " + token;
-}
         
     </script>
 </body>
