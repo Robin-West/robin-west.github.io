@@ -13,22 +13,25 @@
     <h1 id="top">
         Not Logged In
     </h1>
-    Token will refresh every 5 minutes or so.
+    Token will refresh every 5 minutes or so. <br/>
     <a href="#" onClick="startLogout()" class="btn btn-lg btn-primary">Logout</a>
     <script src="./js/login.js"></script>
     <script src="./js/userList.js"></script>
     <script>
-// set to timing desired for token refresh
+// set to timing desired for token refresh - real world would be 59 as tokens expire after 60 minutes
 const refreshtime = 5;
 
 window.onload = async function (){
+    //refresh token
     setTimeout(refresh, (refreshtime*60*1000));
 
+    // TODO: remove once feature complete
     // only needed for testing to make sure we can verify token is refreshing and user still logged in.
     viewToken();
     setInterval(viewToken, 60*1000);
 };
 
+// TODO: remove once feature complete
 function viewToken(){
     let token = getCookie("token");
     if (0 < token.length)

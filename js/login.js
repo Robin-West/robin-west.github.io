@@ -37,31 +37,35 @@ function deleteCookie(cname)
     document.cookie = cname + "; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
-  function refreshToken() {
-    const url = "https://test-api1.zebra.com/v2/phoenixDemoApp/identity/token/refresh";
-    value = getCookie("token");
+function login() {
+  window.location.replace("https://uat.ssppcoret.zebra.engineering/identity/token/api_demo_app?redirectUri=" + window.location.href);
+}
 
-    fetch(url, {
-        method : "POST",
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: '{\"token\": \"'+value+'\"}' ,
-    })
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error(response.error)
-        }
-        return response.json();
-    })
-    .then(data => {
-      let token = data.token;
-      setCookie("token",token, 1);
-    })
-    .catch(function(error) {
-        deleteCookie("token");
-    });
+function refreshToken() {
+  const url = "https://test-api1.zebra.com/v2/phoenixDemoApp/identity/token/refresh";
+  value = getCookie("token");
+
+  fetch(url, {
+      method : "POST",
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: '{\"token\": \"'+value+'\"}' ,
+  })
+  .then((response) => {
+      if (!response.ok) {
+          throw new Error(response.error)
+      }
+      return response.json();
+  })
+  .then(data => {
+    let token = data.token;
+    setCookie("token",token, 1);
+  })
+  .catch(function(error) {
+      deleteCookie("token");
+  });
 }
 
 async function logout() {
