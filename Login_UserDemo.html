@@ -56,7 +56,6 @@ if (params.token == null) {
     if (0 < token.length)
     {
       setCookie("token",token, 1);
-      setTimeout(refresh, (5*60*1000));
       window.location.replace("./UserList.html");
     }
   }
