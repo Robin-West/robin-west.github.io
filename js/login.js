@@ -37,26 +37,6 @@ function deleteCookie(cname)
     document.cookie = cname + "; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
-/*const refreshToken = async () => {
-    value = getCookie("token");
-    const response = await fetch('https://test-api1.zebra.com/v2/phoenixDemoApp/identity/token/refresh', {
-      method: 'POST',
-      body: '{\"token\": \"'+value+'\"}' ,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    let resp = await response;
-    if (resp.ok){
-        const myJson = resp.json(); //extract JSON from the http response
-        // setCookie("token",myJson, 1);
-        setCookie("token",myJson.token, 1);
-    }
-    else
-        deleteCookie("token");
-    return;
-  }*/
-
   function refreshToken() {
     const url = "https://test-api1.zebra.com/v2/phoenixDemoApp/identity/token/refresh";
     value = getCookie("token");
@@ -120,5 +100,5 @@ async function logout() {
 
 async function refresh(){
   await refreshToken();
-  setTimeout(refresh, (5*60*1000));
+  setTimeout(refresh, (refreshtime*60*1000));
 }

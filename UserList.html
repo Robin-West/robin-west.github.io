@@ -13,17 +13,22 @@
     <h1 id="top">
         Not Logged In
     </h1>
-    <a href="#" onClick="startLogout()" class="btn btn-lg">Logout</a>
-    <!--a href="#" onClick="refresh()" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Refresh token</a-->
+    Token will refresh every 5 minutes or so.
+    <a href="#" onClick="startLogout()" class="btn btn-lg btn-primary">Logout</a>
     <script src="./js/login.js"></script>
     <script src="./js/userList.js"></script>
     <script>
+// set to timing desired for token refresh
+const refreshtime = 5;
 
 window.onload = async function (){
-    setTimeout(refresh, (5*60*1000));
+    setTimeout(refresh, (refreshtime*60*1000));
+
+    // only needed for testing to make sure we can verify token is refreshing and user still logged in.
     viewToken();
     setInterval(viewToken, 60*1000);
 };
+
 function viewToken(){
     let token = getCookie("token");
     if (0 < token.length)
@@ -32,6 +37,7 @@ function viewToken(){
     }
     else document.getElementById("top").textContent = "Not Logged In";
 }
+
 async function startLogout()
 {
     await logout();
