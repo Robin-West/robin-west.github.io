@@ -57,7 +57,7 @@ if (params.token == null) {
     if (0 < token.length)
     {
       setCookie("token",token, 1);
-      document.getElementById("token").textContent = "Token: " + token;
+      //document.getElementById("token").textContent = "Token: " + token;
       //setTimeout(refresh, (59*60*1000));
       window.location.replace("./UserList.html");
     }

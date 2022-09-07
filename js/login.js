@@ -37,7 +37,7 @@ function deleteCookie(cname)
     document.cookie = cname + "; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
-const refreshToken = async () => {
+/*const refreshToken = async () => {
     value = getCookie("token");
     const response = await fetch('https://test-api1.zebra.com/v2/phoenixDemoApp/identity/token/refresh', {
       method: 'POST',
@@ -55,7 +55,34 @@ const refreshToken = async () => {
     else
         deleteCookie("token");
     return;
-  }
+  }*/
+
+  function refreshToken() {
+    const url = "https://test-api1.zebra.com/v2/phoenixDemoApp/identity/token/refresh";
+    value = getCookie("token");
+
+    fetch(url, {
+        method : "POST",
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: '{\"token\": \"'+value+'\"}' ,
+    })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(response.error)
+        }
+        return response.json();
+    })
+    .then(data => {
+      let token = data.token;
+      setCookie("token",token, 1);
+    })
+    .catch(function(error) {
+        deleteCookie("token");
+    });
+}
 
 async function logout() {
     value = getCookie("token");
@@ -71,7 +98,7 @@ async function logout() {
     return;
   }
 
-  async function verify() {
+  /*async function verify() {
     value = getCookie("token");
     let verified = false;
     const response = await fetch('https://test-api1.zebra.com/v2/phoenixDemoApp/identity/oauth/token/verify', {
@@ -89,7 +116,7 @@ async function logout() {
         deleteCookie("token");
     }
     return verified;
-  }
+  }*/
 
   async function refresh(){
     await refreshToken();
