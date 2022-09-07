@@ -118,9 +118,7 @@ async function logout() {
     return verified;
   }*/
 
-  async function refresh(){
-    await refreshToken();
-    setTimeout(refresh, (/*59**/60*1000));
-    let token = getCookie("token");
-    document.getElementById("top").textContent = "Token: " + token;
+async function refresh(){
+  await refreshToken();
+  setTimeout(refresh, (5*60*1000));
 }

@@ -11,12 +11,17 @@
 window.onload = async function (){
     //let logged = await verify();
     
-    let token = await getCookie("token");
+    viewToken();
+    setInterval(viewToken, 60*1000);
+};
+function viewToken(){
+    let token = getCookie("token");
     if (0 < token.length)
     {
         document.getElementById("top").textContent = "Token: " + token;
     }
-};
+    else document.getElementById("top").textContent = "Not Logged In";
+}
         
     </script>
 </body>
