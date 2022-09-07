@@ -49,7 +49,8 @@ const refreshToken = async () => {
     let resp = await response;
     if (resp.ok){
         const myJson = resp.json(); //extract JSON from the http response
-        setCookie("token",myJson, 1);
+        // setCookie("token",myJson, 1);
+        setCookie("token",myJson.token, 1);
     }
     else
         deleteCookie("token");
