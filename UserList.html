@@ -19,7 +19,7 @@
     <script src="./js/userList.js"></script>
     <script>
 // set to timing desired for token refresh - real world would be 59 as tokens expire after 60 minutes
-const refreshtime = 5;
+const refreshtime = 1;
 
 window.onload = async function (){
     //refresh token
@@ -28,7 +28,6 @@ window.onload = async function (){
     // TODO: remove once feature complete
     // only needed for testing to make sure we can verify token is refreshing and user still logged in.
     viewToken();
-    setInterval(viewToken, 60*1000);
 };
 
 // TODO: remove once feature complete

@@ -41,7 +41,7 @@ function login() {
   window.location.replace("https://uat.ssppcoret.zebra.engineering/identity/token/api_demo_app?redirectUri=" + window.location.href);
 }
 
-function refreshToken() {
+function refreshToken(callback) {
   const url = "https://test-api1.zebra.com/v2/phoenixDemoApp/identity/token/refresh";
   value = getCookie("token");
 
@@ -60,11 +60,12 @@ function refreshToken() {
       return response.json();
   })
   .then(data => {
-    let token = data.token;
-    setCookie("token",token, 1);
+    setCookie("token",data.token, 1);
+    callback();
   })
   .catch(function(error) {
       deleteCookie("token");
+      callback();
   });
 }
 
@@ -82,27 +83,7 @@ async function logout() {
     return;
   }
 
-  /*async function verify() {
-    value = getCookie("token");
-    let verified = false;
-    const response = await fetch('https://test-api1.zebra.com/v2/phoenixDemoApp/identity/oauth/token/verify', {
-      method: 'POST',
-      body: '{\"access_token\": \"'+value+'\"}' ,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    await response;
-    if (response.ok){
-        verified = true;
-    }
-    else {
-        deleteCookie("token");
-    }
-    return verified;
-  }*/
-
 async function refresh(){
-  await refreshToken();
+  await refreshToken(viewToken);
   setTimeout(refresh, (refreshtime*60*1000));
 }
