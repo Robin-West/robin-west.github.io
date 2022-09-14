@@ -1,3 +1,32 @@
+# Software and Solutions API Demo
+
+The API Management Team has put together a set of sample code apps to show the capabilities of the SWS Platform.
+
+The Demo can be run here: https://storage.googleapis.com/data_services_demos_live/Phoenix-API-Demo/index.html
+
+The code for these apps can be found on github: https://github.com/Robin-West/robin-west.github.io
+
+Details and notes for integration can be found on Confluence: https://confluence.zebra.com/display/ZRPS/API+Demo+App
+
+
+
+## How to Test
+The workflow you'll see demonstrated: Demo App Landing page (with login button)... redirects to a IdP for that specific tenant... then redirects back with successful login.
+
+* Navigate to WebApp hosted on GCP: https://storage.googleapis.com/data_services_demos_live/Phoenix-API-Demo/Login_UserDemo.html
+* Enter credentials for successful login (must get credentials from: Robin West or Ben Horgen)
+Result: You'll see the page with a token from the multi-tenant (non-Ping) Identity Provider that Phoenix offers.
+* Optional: if you click the link in step 1 (and click the login button on the home page), you won't have to log in again... you go directly to the token page.
+* Wait for about 6 minutes the token will automatically change
+* Click the logout button to go back to the login page
+* Follow steps 2-5 at https://robin-west.github.io/Login_UserDemo.html
+Result: See a different app using the same login credentials  
+
+
+<br><br>
+
+____________________________________________
+
 <div id="top"></div>
 
 <!-- PROJECT SHIELDS -->
