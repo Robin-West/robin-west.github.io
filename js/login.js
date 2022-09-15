@@ -38,11 +38,11 @@ function deleteCookie(cname)
 }
 
 function login() {
-  window.location.replace("https://uat.ssppcoret.zebra.engineering/identity/token/api_demo_app?redirectUri=" + window.location.href);
+  window.location.replace("https://uat.ssppcorep.zebra.engineering/identity/token/api_demo_app?redirectUri=" + window.location.href);
 }
 
 function refreshToken(callback) {
-  const url = "https://test-api1.zebra.com/v2/phoenixDemoApp/identity/token/refresh";
+  const url = "https://stage-api.zebra.com/v2/phoenixDemoApp/identity/token/refresh";
   value = getCookie("token");
 
   fetch(url, {
@@ -71,7 +71,7 @@ function refreshToken(callback) {
 
 async function logout() {
     value = getCookie("token");
-    const response = await fetch('https://test-api1.zebra.com/v2/phoenixDemoApp/identity/token/logout', {
+    const response = await fetch('https://stage-api.zebra.com/v2/phoenixDemoApp/identity/token/logout', {
       method: 'POST',
       body: '{\"token\": \"'+value+'\"}' ,
       headers: {

@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "msedge",
+            "type": "chrome",
             "request": "launch",
             "name": "Open UserList.html",
-            "file": "c:\\Users\\RWEST\\source\\robin-west.github.io\\Login_UserDemo.html?token=1234"
+            "file": "C:\\Repos\\zebratechnologies\\robin-west.github.io\\Login_UserDemo.html?token=1234"
         }
     ]
 }
