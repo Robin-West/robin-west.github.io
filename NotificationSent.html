@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/5.2/examples/cover/ -->
+<html lang="en" class="h-100"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Shows 3rd party login capabilities of the SWS platform. Access a userlist for a tenant. Select a user, see some basic details, 
+      and send them a pre-formatted test email.">
+    <meta name="author" content="Robin West, Tim Quinnell, Peter Douglass, Jason Ruby">
+    <title>SWS Platform Demo - UserList</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <meta name="theme-color" content="#712cf9">
+    <!-- Custom styles for this template -->
+    <link href="./css/cover.css" rel="stylesheet">
+    <style>
+      .bg-white {
+        color:black;
+      }
+    </style>
+  </head>
+  <body class="d-flex h-100 text-center text-bg-dark">
+    
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header>
+        <a href="./index.html" style="text-align:left;"><i class="bi bi-caret-left" style="color:white;text-decoration: none;">&#60;</i></a>
+      </header>
+      <main class="px-3" style="margin-top:300px;">
+        <img src="./img/Zebra_Logo_W.png" alt="Zebra Technologies" width="200px">
+        <h1>Notification Sent!</br></h1>
+        <p class="lead">
+          <a href="#" onClick="login()" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Back</a>
+        </p>
+      </main>
+
+      <footer class="mt-auto text-white-50">
+        <p>Provided by Zebra Technologies API Managment @c2022 - <a href="https://jira.zebra.com/servicedesk/customer/portal/5/create/53" class="text-white">Issues</a>,  
+          <a href="https://github.com/zebratechnologies" class="text-white">Source Code</a></p>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="./js/login.js"></script>
+    <script>
+
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+// Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+if (params.token == null) {
+  //do nothing
+} else {
+  let token = params.token; // "some_value"
+  window.onload = function (){
+    if (0 < token.length)
+    {
+      setCookie("token",token, 1);
+      window.location.replace("./UserList.html");
+    }
+  }
+}
+    </script>
+</body></html>

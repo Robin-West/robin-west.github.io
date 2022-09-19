@@ -1,0 +1,18 @@
+{
+	"scope": "ANY",
+	"tenantId": "api_demo_app",
+	"userIds": [
+		"tquinnell"
+	],
+	"applicationScope": "string",
+	"notificationTypes": [
+		"EMAIL"
+	],
+	"notificationMessage": "Hello, World",
+	"subject": "Notification #1",
+	"fcmOptions": {
+		"timeToLive": "string",
+		"priority": "HIGH",
+		"isNotification": true
+	}
+}

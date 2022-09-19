@@ -1,0 +1,114 @@
+{
+	"users": [
+		{
+			"userId": "pdouglas",
+			"tenantId": "api_demo_app",
+			"firstName": "Peter",
+			"lastName": "Douglas",
+			"email": "pdouglas@zebra.com",
+			"userStatus": "ONLINE",
+			"creationTime": "2022-09-19T15:44:44.321Z",
+			"lastUpdated": "2022-09-19T15:44:44.321Z",
+			"notificationPreferences": [
+				{
+					"scope": "string",
+					"subSystem": "string",
+					"allowedTypes": [
+						"EMAIL"
+					]
+				}
+			],
+			"contactNumber": "234-234-2344",
+			"uniqueUserId": "94d43cd7-f736-4654-961d-0341adea491b",
+			"addresses": [
+				{
+					"type": "HOME_ADDRESS",
+					"address": "123 Street, City, MN"
+				}
+			],
+			"contactNumbers": [
+				{
+					"type": "HOME_PHONE",
+					"phoneNumber": "234-234-2344"
+				}
+			],
+			"roles": [
+				{
+					"tenantId": "api_demo_app",
+					"domain": "string",
+					"scope": "string",
+					"roleId": "string"
+				}
+			]
+		},
+		{
+			"userId": "tquinnell",
+			"tenantId": "api_demo_app",
+			"firstName": "Tim",
+			"lastName": "Quinnell",
+			"email": "tquinnell@zebra.com",
+			"location": "string",
+			"site": "string",
+			"departments": "string",
+			"attributes": [
+				{
+					"scope": "string",
+					"fieldName": "string",
+					"value": "string",
+					"domain": "string"
+				}
+			],
+			"workspaceTags": {
+				"additionalProp1": "string",
+				"additionalProp2": "string",
+				"additionalProp3": "string"
+			},
+			"userStatus": "ONLINE",
+			"creationTime": "2022-09-19T15:44:44.321Z",
+			"lastUpdated": "2022-09-19T15:44:44.321Z",
+			"batchId": "string",
+			"notificationPreferences": [
+				{
+					"scope": "string",
+					"subSystem": "string",
+					"allowedTypes": [
+						"EMAIL"
+					]
+				}
+			],
+			"contactNumber": "345-345-3455",
+			"uniqueUserId": "4e005718-bff0-4654-81b6-9a1a71f5f1d9",
+			"claims": {
+				"additionalProp1": "string",
+				"additionalProp2": "string",
+				"additionalProp3": "string"
+			},
+			"enabledScopes": {
+				"additionalProp1": true,
+				"additionalProp2": true,
+				"additionalProp3": true
+			},
+			"addresses": [
+				{
+					"type": "HOME_ADDRESS",
+					"address": "345 Road, Township, MN"
+				}
+			],
+			"contactNumbers": [
+				{
+					"type": "HOME_PHONE",
+					"phoneNumber": "345-345-3455"
+				}
+			],
+			"roles": [
+				{
+					"tenantId": "string",
+					"domain": "string",
+					"scope": "string",
+					"roleId": "string"
+				}
+			]
+		}
+	],
+	"nextPageToken": "string"
+}
