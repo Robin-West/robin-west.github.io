@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="userDetail">User detail goes here.</div> <br/>
-    <a href="#" onClick="sendNotification()" class="btn btn-lg btn-primary">Send Notification</a>
+    <!-- <a href="#" onClick="sendNotification()" class="btn btn-lg btn-primary">Send Notification</a> -->
     <script src="./js/login.js"></script>
     <script type="module" src="./js/userDetail.js"></script>
     <script>
@@ -25,7 +25,10 @@ window.onload = async function (){
         .then(response => response.json())
         .then(data => {
             console.log(data.userId)
-            document.querySelector("#userDetail").innerText = "User detail for " + data.userId;
+            document.querySelector("#userDetail").innerHTML = "User detail for " + data.userId 
+                + ":<br/>Name: " + data.firstName + " " + data.lastName
+                + "<br/>UserId: " + data.uniqueUserId 
+                + "<br/><a href=\"/NotificationSent.html\" class=\"btn btn-lg btn-primary\">Send Notification</a>";
         })
     // TODO: remove once feature complete
     // only needed for testing to make sure we can verify token is refreshing and user still logged in.

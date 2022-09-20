@@ -13,11 +13,12 @@
     <h1 id="top">
         Not Logged In
     </h1>
-    Token will refresh every 5 minutes or so. <br/>
+    <div id="userList">User List goes here.</div> <br/>
     <a href="#" onClick="startLogout()" class="btn btn-lg btn-primary">Logout</a>
     <script src="./js/login.js"></script>
     <script src="./js/userList.js"></script>
     <script>
+        
 // set to timing desired for token refresh - real world would be 59 as tokens expire after 60 minutes
 const refreshtime = 1;
 
@@ -27,6 +28,23 @@ window.onload = async function (){
 
     // TODO: remove once feature complete
     // only needed for testing to make sure we can verify token is refreshing and user still logged in.
+    fetch("/data/getUserList.json")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.users)
+            let text= ""
+            //TODO: parse and present with detail navigation
+            document.querySelector("#top").innerText = "";
+            for (let i = 0; i < data.users.length; i++) {
+             text += data.users[i].userId 
+              //  + ":<br/>Name: " + data.users[i].firstName + " " + data.users[i].lastName
+              //  + "<br/>UserId: " + data.users[i].uniqueUserId 
+                + "<br/>" 
+                + "<a href=\"/UserDetail.html\">See detail</a>" + "<br/><br/>"
+            }
+            
+            document.querySelector("#userList").innerHTML = text
+        })
     viewToken();
 };
 
