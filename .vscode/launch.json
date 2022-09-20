@@ -7,8 +7,8 @@
         {
             "type": "pwa-chrome",
             "request": "launch",
-            "name": "Open UserList.html",
-            "file": "C:\\Git\\Repos\\zebratechnologies\\robin-west.github.io\\UserDetail.html?token=lalalala"
+            "name": "User List",
+            "file": "C:\\Git\\Repos\\zebratechnologies\\robin-west.github.io\\UserList.html?token=lalalala"
         }
     ]
 }

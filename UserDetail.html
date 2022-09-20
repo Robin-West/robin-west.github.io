@@ -26,7 +26,7 @@ window.onload = async function (){
         .then(data => {
             console.log(data.userId)
             document.querySelector("#userDetail").innerHTML = "User detail for " + data.userId 
-                + ":<br/>Name: " + data.firstName + " " + data.lastName
+                + "<br/>Name: " + data.firstName + " " + data.lastName
                 + "<br/>UserId: " + data.uniqueUserId 
                 + "<br/><a href=\"/NotificationSent.html\" class=\"btn btn-lg btn-primary\">Send Notification</a>";
         })
