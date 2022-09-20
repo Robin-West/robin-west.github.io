@@ -20,7 +20,7 @@ const refreshtime = 1;
 window.onload = async function (){
     //refresh token
     setTimeout(refresh, (refreshtime*60*1000));
-   //fetch from eg., https://uat.ssppcoret.zebra.engineering/api/users/tquinnell?tenantId=api_demo_app
+    // TODO: fetch from eg., https://uat.ssppcoret.zebra.engineering/api/users/tquinnell?tenantId=api_demo_app
     fetch("/data/getUserDetail.json")
         .then(response => response.json())
         .then(data => {
@@ -50,8 +50,9 @@ function loadUserDetail(){
 
 async function sendNotification()
 {
-    //await logout();
-    window.location.replace("./Login_UserDemo.html");
+    // TODO: post Notification and display confirmation
+    // eg., https://uat.ssppcoret.zebra.engineering/api/devices/notifications
+    window.location.replace("./NotificationSent.html");
 }
         
     </script>

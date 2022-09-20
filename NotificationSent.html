@@ -28,9 +28,9 @@
       </header>
       <main class="px-3" style="margin-top:300px;">
         <img src="./img/Zebra_Logo_W.png" alt="Zebra Technologies" width="200px">
-        <h1>Notification Sent!</br></h1>
+        <h1>Notification Sent! Yay!</br></h1>
         <p class="lead">
-          <a href="#" onClick="login()" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Back</a>
+          <a href="#" onClick="navigateBack()" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Back</a>
         </p>
       </main>
 
@@ -43,21 +43,28 @@
     <script src="./js/login.js"></script>
     <script>
 
-const params = new Proxy(new URLSearchParams(window.location.search), {
-  get: (searchParams, prop) => searchParams.get(prop),
-});
-// Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-if (params.token == null) {
-  //do nothing
-} else {
-  let token = params.token; // "some_value"
-  window.onload = function (){
-    if (0 < token.length)
-    {
-      setCookie("token",token, 1);
-      window.location.replace("./UserList.html");
-    }
-  }
+// const params = new Proxy(new URLSearchParams(window.location.search), {
+//   get: (searchParams, prop) => searchParams.get(prop),
+// });
+// // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+// if (params.token == null) {
+//   //do nothing
+// } else {
+//   let token = params.token; // "some_value"
+//   window.onload = function (){
+//     if (0 < token.length)
+//     {
+//       setCookie("token",token, 1);
+//       window.location.replace("./UserList.html");
+//     }
+//   }
+// }
+
+async function navigateBack()
+{
+    // TODO: post Notification and display confirmation
+    // eg., https://uat.ssppcoret.zebra.engineering/api/devices/notifications
+    window.location.replace("./Login_UserDemo.html");
 }
     </script>
 </body></html>
