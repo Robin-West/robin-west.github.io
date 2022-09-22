@@ -38,8 +38,8 @@ function deleteCookie(cname)
 }
 
 function login() {
-  window.location.replace("https://uat-ssppcorep.pp.zebra.com/api/identity/token/api_demo_app_keycloak?redirectUri=" + window.location.href);
-//     window.location.replace("https://uat-ssppcorep.pp.zebra.com/identity/token/api_demo_app9?redirectUri=" + window.location.href);
+//   window.location.replace("https://uat-ssppcorep.pp.zebra.com/api/identity/token/api_demo_app_keycloak?redirectUri=" + window.location.href);
+    window.location.replace("https://uat-ssppcorep.pp.zebra.com/identity/token/api_demo_app_keycloak?redirectUri=" + window.location.href);
 }
 
 function refreshToken(callback) {
