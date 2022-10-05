@@ -55,5 +55,6 @@ function showUsers(data)
     userTable.appendChild(row);
   }
   userTable.appendChild(row);
+  userTable.style.cssText += 'color:white';
   //document.getElementById("table").textContent = JSON.stringify(data);
 }
