@@ -1,9 +1,9 @@
 function getUsers(callback) {
   const url = "https://stage-api.zebra.com/v2/phoenixDemoApp/api/users/?pageSize=30&tenantId=" + tenant;
 
-  //value = "Bearer " + getCookie("token");
+  value = "Bearer " + getCookie("token");
     //debug local
-  value = "Bearer d5f955ff-05b7-4607-9506-4cd2400b5ab7"
+  //value = "Bearer d5f955ff-05b7-4607-9506-4cd2400b5ab7"
 
   fetch(url, {
     method: 'GET',
