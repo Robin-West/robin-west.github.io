@@ -55,7 +55,7 @@ function showUsers(data)
     row.appendChild(td4);
 
     row.className = "clickable ";
-    row.onclick(function(){window.location="./UserDetail.html?userId=" + data.users[i].userId + ""});
+    row.onclick(function(){window.location='./UserDetail.html?userId=" + data.users[i].userId + "'});
     //row.onclick(window.location="./UserDetail.html?userId=" + data.users[i].userId + "");
 
     if (data.users[i].userStatus == "OFFLINE")
