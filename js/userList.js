@@ -38,7 +38,7 @@ function showUsers(data)
     row.id = data.users[i].userId;
     let td1 = document.createElement("td");
     td1.innerText = data.users[i].userId;
-    row.onclick(function(){window.location.replace("./UserDetail.html?userId=" + data.users[i].userId + "")});
+
     row.appendChild(td1);
     let td2 = document.createElement("td");
     td2.innerText = data.users[i].firstName;
@@ -52,7 +52,8 @@ function showUsers(data)
     td4.innerText = data.users[i].email;
     if (td4.innerText == 'undefined') td4.innerText = '&nbsp;';
     row.appendChild(td4);
-  
+
+    row.onclick(window.location="./UserDetail.html?userId=" + data.users[i].userId + "");
     //let td5 = document.createElement("td");
     //td5.innerText = "View Detail";
     //td5.row.appendChild(td5);
