@@ -1,7 +1,8 @@
 function getUsers(callback) {
   const url = "https://stage-api.zebra.com/v2/phoenixDemoApp/api/users/?pageSize=30&tenantId=" + tenant;
-  value = "Bearer " + getCookie("token");
-
+  //debug local
+  //value = "Bearer " + getCookie("token");
+  value = "Bearer 60d23122-1927-4263-bdb6-0526754bd812"
 
   fetch(url, {
     method: 'GET',
@@ -33,9 +34,11 @@ function showUsers(data)
   let userTable = document.getElementById("userTable");
   for (let i = 0; i < data.users.length; i++) {
     let row = document.createElement("tr");
+  
     row.id = data.users[i].userId;
     let td1 = document.createElement("td");
     td1.innerText = data.users[i].userId;
+    row.onclick(function(){window.location.replace("./UserDetail.html?userId=" + data.users[i].userId + "")});
     row.appendChild(td1);
     let td2 = document.createElement("td");
     td2.innerText = data.users[i].firstName;
@@ -43,18 +46,21 @@ function showUsers(data)
     row.appendChild(td2);
     let td3 = document.createElement("td");
     td3.innerText = data.users[i].lastName;
-    if (td2.innerText == 'undefined') td2.innerText = '&nbsp;';
+    if (td3.innerText == 'undefined') td3.innerText = '&nbsp;';
     row.appendChild(td3);
     let td4 = document.createElement("td");
     td4.innerText = data.users[i].email;
-    if (td2.innerText == 'undefined') td2.innerText = '&nbsp;';
+    if (td4.innerText == 'undefined') td4.innerText = '&nbsp;';
     row.appendChild(td4);
+  
+    //let td5 = document.createElement("td");
+    //td5.innerText = "View Detail";
+    //td5.row.appendChild(td5);
     if (data.users[i].userStatus == "OFFLINE")
       row.classList.add("table-warning");
     else row.classList.add("table-success");
     userTable.appendChild(row);
   }
   userTable.appendChild(row);
-  userTable.style.cssText += 'color:white';
   //document.getElementById("table").textContent = JSON.stringify(data);
 }
