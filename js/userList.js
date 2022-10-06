@@ -54,12 +54,6 @@ function showUsers(data)
     if (td4.innerText == 'undefined') td4.innerText = '&nbsp;';
     row.appendChild(td4);
 
-<<<<<<< HEAD
-    //row.onclick(function(){window.location='./UserDetail.html?userId=" + data.users[i].userId + "'});
-=======
-    row.className = "clickable ";
-    row.onclick(function(){window.location='./UserDetail.html?userId=" + data.users[i].userId + "'});
->>>>>>> 0743203135a6f776b519320e59aaa110e551e267
     //row.onclick(window.location="./UserDetail.html?userId=" + data.users[i].userId + "");
 
     if (data.users[i].userStatus == "OFFLINE")
