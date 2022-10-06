@@ -1,9 +1,9 @@
 function getUsers(callback) {
   const url = "https://stage-api.zebra.com/v2/phoenixDemoApp/api/users/?pageSize=30&tenantId=" + tenant;
 
-  value = "Bearer " + getCookie("token");
+  //value = "Bearer " + getCookie("token");
     //debug local
-  //value = "Bearer 60d23122-1927-4263-bdb6-0526754bd812"
+  value = "Bearer d5f955ff-05b7-4607-9506-4cd2400b5ab7"
 
   fetch(url, {
     method: 'GET',
@@ -53,8 +53,9 @@ function showUsers(data)
     td4.innerText = data.users[i].email;
     if (td4.innerText == 'undefined') td4.innerText = '&nbsp;';
     row.appendChild(td4);
-
-    row.onclick(window.location="./UserDetail.html?userId=" + data.users[i].userId + "");
+    
+    row.className = "clickable ";
+    row.onclick(function(){window.location="./UserDetail.html?userId=" + data.users[i].userId + ""});
     //let td5 = document.createElement("td");
     //td5.innerText = "View Detail";
     //td5.row.appendChild(td5);
