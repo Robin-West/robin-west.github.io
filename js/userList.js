@@ -54,7 +54,8 @@ function showUsers(data)
     if (td4.innerText == 'undefined') td4.innerText = '&nbsp;';
     row.appendChild(td4);
 
-    row.onclick(window.location="./UserDetail.html?userId=" + data.users[i].userId + "");
+    row.onclick(function(){window.location="./UserDetail.html?userId=" + data.users[i].userId + ""});
+    //row.onclick(window.location="./UserDetail.html?userId=" + data.users[i].userId + "");
     //let td5 = document.createElement("td");
     //td5.innerText = "View Detail";
     //td5.row.appendChild(td5);
