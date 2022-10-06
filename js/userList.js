@@ -53,12 +53,11 @@ function showUsers(data)
     td4.innerText = data.users[i].email;
     if (td4.innerText == 'undefined') td4.innerText = '&nbsp;';
     row.appendChild(td4);
-    
+
     row.className = "clickable ";
     row.onclick(function(){window.location="./UserDetail.html?userId=" + data.users[i].userId + ""});
-    //let td5 = document.createElement("td");
-    //td5.innerText = "View Detail";
-    //td5.row.appendChild(td5);
+    //row.onclick(window.location="./UserDetail.html?userId=" + data.users[i].userId + "");
+
     if (data.users[i].userStatus == "OFFLINE")
       row.classList.add("table-warning");
     else row.classList.add("table-success");
