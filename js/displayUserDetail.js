@@ -1,33 +1,33 @@
-function getUser(callback) {
-  const url = "https://stage-api.zebra.com/v2/phoenixDemoApp/api/users/?pageSize=30&tenantId=" + tenant;
+// function getUser(callback) {
+//   const url = "https://stage-api.zebra.com/v2/phoenixDemoApp/api/users/?pageSize=30&tenantId=" + tenant;
 
-  //value = "Bearer " + getCookie("token");
-    //debug local
-  value = "Bearer f9f86437-b76a-4265-91f9-2e7a6ce19dae"
+//   //value = "Bearer " + getCookie("token");
+//     //debug local
+//   value = "Bearer f9f86437-b76a-4265-91f9-2e7a6ce19dae"
 
-  fetch(url, {
-    method: 'GET',
-    mode: 'cors',
-    headers: {
-      'accept': 'application/json',
-      'authorization': value
-    }
-  })
-  .then((response) => {
-      if (!response.ok) {
-          throw new Error(response.status + " " + response.statusText)
-      }
-      return response.json();
-  })
-  .then(data => {
-    callback(data);
-  })
-  .catch(function(error) {
-      callback("Error: " + error);
-  });
-}
+//   fetch(url, {
+//     method: 'GET',
+//     mode: 'cors',
+//     headers: {
+//       'accept': 'application/json',
+//       'authorization': value
+//     }
+//   })
+//   .then((response) => {
+//       if (!response.ok) {
+//           throw new Error(response.status + " " + response.statusText)
+//       }
+//       return response.json();
+//   })
+//   .then(data => {
+//     callback(data);
+//   })
+//   .catch(function(error) {
+//       callback("Error: " + error);
+//   });
+// }
 
-function showUsers(data)
+function showUserDetail(data)
 {
   if (JSON.stringify(data).startsWith("Error"))
     document.getElementById("table").textContent = JSON.stringify(data);
@@ -65,8 +65,4 @@ function showUsers(data)
   }
   userTable.appendChild(row);
   //document.getElementById("table").textContent = JSON.stringify(data);
-}
-
-function showUsers(data)
-{
 }
