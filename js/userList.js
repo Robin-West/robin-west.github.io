@@ -56,7 +56,7 @@ function showUsers(data)
 
     //TODO: this executes immediately with the first user in the list
     //it is meant to be a row onclick event executable in the browser
-    row.onclick = goToDetail(data.users[i].userId);
+    row.onclick = function() { goToDetail(row.id); };
 
     if (data.users[i].userStatus == "OFFLINE")
       row.classList.add("table-warning");
