@@ -54,8 +54,6 @@ function showUsers(data)
     if (td4.innerText == 'undefined') td4.innerText = ' ';
     row.appendChild(td4);
 
-    //TODO: this executes immediately with the first user in the list
-    //it is meant to be a row onclick event executable in the browser
     row.onclick = function() { goToDetail(row.id); };
 
     if (data.users[i].userStatus == "OFFLINE")
@@ -67,6 +65,5 @@ function showUsers(data)
 }
 
 function goToDetail(id){
-  alert(id);
-  //window.location='./UserDetail.html?userId=' + id;
+  window.location='./UserDetail.html?userId=' + id;
 }

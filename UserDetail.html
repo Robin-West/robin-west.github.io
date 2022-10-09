@@ -34,65 +34,16 @@
     <script src="./js/displayUserDetail.js"></script>
     <script>
 
-window.onload = async function (){
-    //refresh token
-    setTimeout(refresh, (refreshtime*60*1000));
-
-    // TODO: remove once feature complete
-    // only needed for testing to make sure we can verify token is refreshing and user still logged in.
-    viewToken();
-    displayUserDetail(showUserDetail);
-};
+if (params.token == null) {
+  //do nothing
+} else {
+    let id = params.token; // "some_value"
+    window.onload = async function (){
+        //viewToken();
+        getUser(id, showUserDetail);
+    };
+}
   
 </script>
-</body>
-</html>
-
-<!-- <script>
-
-const refreshtime = 1;
-
-window.onload = async function (){
-    //refresh token
-    setTimeout(refresh, (refreshtime*60*1000));
-    // TODO: fetch from eg., https://uat.ssppcoret.zebra.engineering/api/users/tquinnell?tenantId=api_demo_app
-    fetch("/data/getUserDetail.json")
-        .then(response => response.json())
-        .then(data => {
-            console.log(data.userId)
-            document.querySelector("#userDetail").innerHTML = "User detail for " + data.userId 
-                + "<br/>Name: " + data.firstName + " " + data.lastName
-                + "<br/>UserId: " + data.uniqueUserId 
-                + "<br/><a href=\"/NotificationSent.html\" class=\"btn btn-lg btn-primary\">Send Notification</a>";
-        })
-    // TODO: remove once feature complete
-    // only needed for testing to make sure we can verify token is refreshing and user still logged in.
-    //loadUserDetail();
-};
-
-// TODO: remove once feature complete
-function loadUserDetail(){
-    // jsonData = fetch("./data/getUserDetail.json")
-    //     .then(response => {
-    //     return response.json();
-    // });
-    console.log(jsondata);
-
-    document.getElementById("top").textContent = jsondata;
-    // if (0 < jsondata.length)
-    // {
-    //     document.getElementById("top").textContent = "Token: " + token;
-    // }
-    //else document.getElementById("top").textContent = jsondata;
-}
-
-async function sendNotification()
-{
-    // TODO: post Notification and display confirmation
-    // eg., https://uat.ssppcoret.zebra.engineering/api/devices/notifications
-    window.location.replace("./NotificationSent.html");
-}
-        
-    </script> -->
 </body>
 </html>
