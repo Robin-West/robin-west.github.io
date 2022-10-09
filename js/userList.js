@@ -56,7 +56,7 @@ function showUsers(data)
 
     //TODO: this executes immediately with the first user in the list
     //it is meant to be a row onclick event executable in the browser
-    row.onclick(window.location="./UserDetail.html?userId=" + data.users[i].userId + "");
+    row.onclick = goToDetail(data.users[i].userId);
 
     if (data.users[i].userStatus == "OFFLINE")
       row.classList.add("table-warning");
@@ -64,4 +64,8 @@ function showUsers(data)
     userTable.appendChild(row);
   }
   userTable.appendChild(row);
+}
+
+function goToDetail(id){
+  window.location='./UserDetail.html?userId=' + id;
 }
