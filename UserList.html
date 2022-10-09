@@ -76,8 +76,6 @@ window.onload = async function (){
     //refresh token
     setTimeout(refresh, (refreshtime*60*1000));
 
-    // TODO: remove once feature complete
-    // only needed for testing to make sure we can verify token is refreshing and user still logged in.
     viewToken();
     getUsers(showUsers);
 };

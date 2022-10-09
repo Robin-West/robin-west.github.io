@@ -1,4 +1,4 @@
-function getUser(callback) {
+function getUsers(callback) {
   const url = "https://stage-api.zebra.com/v2/phoenixDemoApp/api/users/?pageSize=30&tenantId=" + tenant;
 
   value = "Bearer " + getCookie("token");
