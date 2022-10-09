@@ -67,5 +67,6 @@ function showUsers(data)
 }
 
 function goToDetail(id){
-  window.location='./UserDetail.html?userId=' + id;
+  alert(id);
+  //window.location='./UserDetail.html?userId=' + id;
 }
