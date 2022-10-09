@@ -33,7 +33,10 @@
     <script src="./js/login.js"></script>
     <script src="./js/displayUserDetail.js"></script>
     <script>
-
+        
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
 if (params.token == null) {
   //do nothing
 } else {

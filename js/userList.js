@@ -56,9 +56,18 @@ function showUsers(data)
 
     row.onclick = function() { goToDetail(row.id); };
 
-    if (data.users[i].userStatus == "OFFLINE")
+    if (data.users[i].userStatus == "OFFLINE"){
       row.classList.add("table-warning");
-    else row.classList.add("table-success");
+      let td5 = document.createElement("td");
+      td5.innerText = "Offline";
+      row.appendChild(td5);
+    }
+    else {
+      row.classList.add("table-success");
+      let td5 = document.createElement("td");
+      td5.innerText = "Online";
+      row.appendChild(td5);
+    } 
     userTable.appendChild(row);
   }
   userTable.appendChild(row);
