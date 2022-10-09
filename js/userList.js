@@ -64,9 +64,4 @@ function showUsers(data)
     userTable.appendChild(row);
   }
   userTable.appendChild(row);
-  //document.getElementById("table").textContent = JSON.stringify(data);
-}
-
-function showUsers(data)
-{
 }
