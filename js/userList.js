@@ -30,7 +30,7 @@ function getUser(callback) {
 function showUsers(data)
 {
   if (JSON.stringify(data).startsWith("Error"))
-    document.getElementById("table").textContent = JSON.stringify(data);
+    document.getElementById("error").textContent = JSON.stringify(data);
 
   let userTable = document.getElementById("userTable");
   for (let i = 0; i < data.users.length; i++) {
@@ -43,15 +43,15 @@ function showUsers(data)
     row.appendChild(td1);
     let td2 = document.createElement("td");
     td2.innerText = data.users[i].firstName;
-    if (td2.innerText == 'undefined') td2.innerText = '&nbsp;';
+    if (td2.innerText == 'undefined') td2.innerText = ' ';
     row.appendChild(td2);
     let td3 = document.createElement("td");
     td3.innerText = data.users[i].lastName;
-    if (td3.innerText == 'undefined') td3.innerText = '&nbsp;';
+    if (td3.innerText == 'undefined') td3.innerText = ' ';
     row.appendChild(td3);
     let td4 = document.createElement("td");
     td4.innerText = data.users[i].email;
-    if (td4.innerText == 'undefined') td4.innerText = '&nbsp;';
+    if (td4.innerText == 'undefined') td4.innerText = ' ';
     row.appendChild(td4);
 
     //TODO: this executes immediately with the first user in the list

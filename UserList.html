@@ -20,19 +20,20 @@
     </style>
 </head>
 <body  class="d-flex h-100 text-center text-bg-dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header>
-        <h1 id="top">
-            Not Logged In
-        </h1>
-        Token will refresh every 5 minutes or so. <br/>
-        <a href="#" onClick="startLogout()" class="btn btn-lg btn-primary">Logout</a>
+    <div class="cover-container d-flex p-3 mx-auto flex-column">
+        <header class="row">
+          <div class="col-9">
+            <img src="./img/Zebra_Logo_W.png" alt="Zebra Technologies" width="100px"> 
+            <span class="fs-5">Software and Solutions Platform<br> Demo App - Users</span><br><br>
+          </div>
+          <div class="col-3 text-end">
+            <button type="button" onClick="startLogout()" class="btn btn-outline-primary me-2">Logout</a>
+          </div>
         </header>
-        <main class="px-3">
-            <p id="table">
-                
-            </p>
-            <table id="userTable" style="background-color: lightgray;" class="table table-hover table-striped table-secondary">
+        <main class="col-12 px-3">
+            <p class="fs-5 text-start" id="tenant">Tenant:</p>
+            <p id="error"> </p>
+            <table class="table table-hover table-striped table-secondary">
                 <thead>
                     <tr >
                     <th scope="col">ID</th>
@@ -42,8 +43,29 @@
                     <th scope="col">View</th>
                     </tr>
                 </thead>
+                <tbody id="userTable">
+                    <tr class="table-success" onclick="window.location='./UserDetail.html?userId=fflintstone';">
+                        <td>fflintstone</td>
+                        <td>Fred</td>
+                        <td>Flintstone</td>
+                        <td>fflintstone@zebra.com</td>
+                        <td>Online</td>
+                    </tr>
+                    <tr class="table-warning" onclick="window.location='./UserDetail.html?userId=brubble';">
+                        <td>bhorgen</td>
+                        <td>Barney</td>
+                        <td>Rubble</td>
+                        <td>brubble@zebra.com</td>
+                        <td>Offline</td>
+                    </tr>
+                </tbody>
             </table>
         </main>
+        <footer class="mt-auto text-white-50">
+            <p id="top">Not Logged In</p>
+            <p>Provided by Zebra Technologies API Managment @c2022 - <a href="https://jira.zebra.com/servicedesk/customer/portal/5/create/53" class="text-white">Issues</a>,  
+              <a href="https://github.com/zebratechnologies" class="text-white">Source Code</a></p>
+        </footer>
     </div>
 
     <script src="./js/login.js"></script>
@@ -68,6 +90,7 @@ function viewToken(){
         document.getElementById("top").textContent = "Token: " + token;
     }
     else document.getElementById("top").textContent = "Not Logged In";
+    document.getElementById("tenant").textContent = "Tenant: " + tenant;
 }
 
 async function startLogout()
