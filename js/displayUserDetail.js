@@ -44,9 +44,9 @@ function showUserDetail(data)
     document.getElementById("site").innerText = data.site;
   if (data.departments != 'undefined')
     document.getElementById("department").innerText = data.departments;
-  if (data.contactNumbers.length > 0)
+  if (data.contactNumbers != 'undefined')
     document.getElementById("contact").innerText = data.contactNumbers[0].phoneNumber;
-  if (data.addresses.length > 0)
+  if (data.addresses != 'undefined')
     document.getElementById("address").innerText = data.addresses[0].address;
 
 }
