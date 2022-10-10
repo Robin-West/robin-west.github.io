@@ -132,3 +132,9 @@ function viewToken(){
   else document.getElementById("top").textContent = "Not Logged In";
   document.getElementById("tenant").textContent = "Tenant: " + tenant;
 }
+
+async function startLogout()
+{
+    await logout();
+    window.location.replace("./Login_UserDemo.html");
+}
