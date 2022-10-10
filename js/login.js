@@ -121,3 +121,14 @@ function verifyToken(callback) {
       callback();
   });
 }
+
+// TODO: remove once feature complete
+function viewToken(){
+  let token = getCookie("token");
+  if (0 < token.length)
+  {
+      document.getElementById("top").textContent = "Token: " + token;
+  }
+  else document.getElementById("top").textContent = "Not Logged In";
+  document.getElementById("tenant").textContent = "Tenant: " + tenant;
+}
