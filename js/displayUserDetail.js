@@ -57,7 +57,7 @@ function sendEmail()
     let emailAddress = document.getElementById("email").innerText;
     let userId = document.getElementById("userId").innerText;
 
-    const url = "https://stage-api.zebra.com/v2/phoenixDemoApp/api/device/notifications";
+    const url = "https://stage-api.zebra.com/v2/phoenixDemoApp/api/devices/notifications";
     value = getCookie("token");
     //value = "778437c2-d70f-4aca-b27b-0f4ef08109cb";
   
