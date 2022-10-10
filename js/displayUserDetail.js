@@ -54,6 +54,7 @@ function showUserDetail(data)
 function sendEmail()
 {
     //send email and popup/notify as sent
+    let tenant = document.getElementById("tenant").innerText;
     let emailAddress = document.getElementById("email").innerText;
     let userId = document.getElementById("userId").innerText;
 
@@ -70,6 +71,6 @@ function sendEmail()
         },
         body:  '{\"scope\": \"NOTIFICATION\",\"tenantId\" : \"api_demo_app_keycloak\",\"userIds\" : [\"'+userId+'\"],\"notificationTypes\" : [\"EMAIL\"]\"applicationScope\":\"demo\",\"notificationMessage\" : \"Phoenix Test message\",\"subject\" : \"Test Phoenix Demo app Subject\",\"fcmOptions\" : {\"timeToLive\" : 2400000, \"isNotification\" : true,\"priority\" : \"NORMAL\"}}' ,
     });
-    alert("Email sent to "+emailAddress+"!"); 
+    alert("Email sent to "+emailAddress+", tenant "+tenant+"!"); 
 
 }
