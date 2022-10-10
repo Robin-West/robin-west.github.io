@@ -57,7 +57,11 @@ function sendEmail()
     document.getElementById("error").textContent = JSON.stringify(data);
     return;
   }
-  //send email and popup/notify as sent
-  //data.email
+  else{
+    //send email and popup/notify as sent
+    let emailAddress = document.getElementById("email").innerText;
+    alert("Email sent to "+emailAddress+"!");
+  }
+  
 
 }
