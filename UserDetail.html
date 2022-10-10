@@ -12,7 +12,8 @@
 
     <meta name="theme-color" content="#712cf9">
     <!-- Custom styles for this template -->
-    <link href="./css/cover.css" rel="stylesheet">
+    <!--link href="./css/cover.css" rel="stylesheet"-->
+    <link href="sticky-footer.css" rel="stylesheet">
     <style>
         .bg-white {
             color:black;
@@ -20,14 +21,60 @@
     </style>
 </head>
 <body  class="d-flex h-100 text-center text-bg-dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header>
-        User Detail<br/>
+    <div class="container d-flex p-3 mx-auto flex-column">
+        <header class="row">
+            <div class="col-9">
+              <img src="./img/Zebra_Logo_W.png" alt="Zebra Technologies" width="100px"> 
+              <span class="fs-4">Software and Solutions Platform Demo App - Users</span><br><br>
+            </div>
+            <div class="col-3 text-end">
+              <button type="button" onClick="back()" class="btn btn-outline-primary me-2">UserList</a>
+              <button type="button" onClick="startLogout()" class="btn btn-outline-primary me-2">Logout</a>
+            </div>
         </header>
-        <main class="px-3">
-            <div id="userDetail" style="background-color: lightgray;" class="table table-hover table-striped table-secondary">
+        <main class="col-12 px-3 flex-shrink-0">
+            <p class="fs-5 text-start" id="tenant">Tenant:</p>
+            <p id="error"> </p>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">ID:</div>
+                <div class="col-lg-6 themed-grid-col" id="userId"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Name:</div>
+                <div class="col-lg-6 themed-grid-col" id="name"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Email:</div>
+                <div class="col-lg-6 themed-grid-col" id="email"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Location:</div>
+                <div class="col-lg-6 themed-grid-col" id="location"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Site:</div>
+                <div class="col-lg-6 themed-grid-col" id="site"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Department:</div>
+                <div class="col-lg-6 themed-grid-col" id="department"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Contact #:</div>
+                <div class="col-lg-6 themed-grid-col" id="contact"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Address:</div>
+                <div class="col-lg-6 themed-grid-col" id="address"></div>
             </div>
         </main>
+        <footer class="footer mt-auto text-white-50">
+            <div class="container">
+              <p id="top">Not Logged In</p>
+              <p>Provided by Zebra Technologies API Managment @c2022 - <a href="https://jira.zebra.com/servicedesk/customer/portal/5/create/53" class="text-white">Issues</a>,  
+              <a href="https://github.com/zebratechnologies" class="text-white">Source Code</a></p>
+            </div>
+        </footer>
     </div>
 
     <script src="./js/login.js"></script>
@@ -42,9 +89,14 @@ if (params.userId == null) {
 } else {
     let id = params.userId; // "some_value"
     window.onload = async function (){
-        //viewToken();
+        viewToken();
         getUser(id, showUserDetail);
     };
+}
+
+function back()
+{
+    window.location='./UserList.html';
 }
   
 </script>

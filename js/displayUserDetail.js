@@ -29,8 +29,17 @@ function getUser(userId, callback) {
 
 function showUserDetail(data)
 {
-  if (JSON.stringify(data).startsWith("Error"))
-    document.getElementById("userDetail").textContent = JSON.stringify(data);
+  if (JSON.stringify(data).startsWith("Error")){
+    document.getElementById("error").textContent = JSON.stringify(data);
+    return;
+  }
+  document.getElementById("userId").innerText = data.userId;
+  document.getElementById("name").innerText = data.lastName + ", " + data.firstName;
+  document.getElementById("email").innerText = data.email;
+  document.getElementById("location").innerText = data.location;
+  document.getElementById("site").innerText = data.site;
+  document.getElementById("department").innerText = data.departments;
+  document.getElementById("contact").innerText = data.contactNumbers[0].phoneNumber;
+  document.getElementById("address").innerText = data.addresses[0].address;
 
-    document.getElementById("userDetail").textContent = JSON.stringify(data);
 }

@@ -35,11 +35,10 @@ function showUsers(data)
   let userTable = document.getElementById("userTable");
   for (let i = 0; i < data.users.length; i++) {
     let row = document.createElement("tr");
-  
     row.id = data.users[i].userId;
+
     let td1 = document.createElement("td");
     td1.innerText = data.users[i].userId;
-
     row.appendChild(td1);
     let td2 = document.createElement("td");
     td2.innerText = data.users[i].firstName;
