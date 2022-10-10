@@ -34,19 +34,19 @@ function showUserDetail(data)
     return;
   }
   document.getElementById("userId").innerText = data.userId;
-  if (data.lastName !== 'undefined')
+  if (data.lastName == null) {} else
     document.getElementById("name").innerText = data.lastName + ", " + data.firstName;
-  if (data.email !== 'undefined')
+  if (data.email == null) {} else
     document.getElementById("email").innerText = data.email;
-  if (data.location !== 'undefined')
+  if (data.location == null) {} else
     document.getElementById("location").innerText = data.location;
-  if (data.site !== 'undefined')
+  if (data.site == null) {} else
     document.getElementById("site").innerText = data.site;
-  if (data.departments !== 'undefined')
+  if (data.departments == null) {} else
     document.getElementById("department").innerText = data.departments;
-  if (data.contactNumbers !== 'undefined')
+  if (data.contactNumbers == null) {} else
     document.getElementById("contact").innerText = data.contactNumbers[0].phoneNumber;
-  if (data.addresses !== 'undefined')
+  if (data.addresses == null) {} else
     document.getElementById("address").innerText = data.addresses[0].address;
 
 }
