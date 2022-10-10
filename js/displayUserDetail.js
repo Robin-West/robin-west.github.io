@@ -53,15 +53,8 @@ function showUserDetail(data)
 
 function sendEmail()
 {
-  if (JSON.stringify(data).startsWith("Error")){
-    document.getElementById("error").textContent = JSON.stringify(data);
-    return;
-  }
-  else{
     //send email and popup/notify as sent
     let emailAddress = document.getElementById("email").innerText;
-    alert("Email sent to "+emailAddress+"!");
-  }
-  
+    alert("Email sent to "+emailAddress+"!"); 
 
 }
