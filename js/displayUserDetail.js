@@ -69,8 +69,8 @@ function sendEmail()
           'Content-Type': 'application/json',
           'Authorization': value
         },
-        body:  '{\"scope\": \"NOTIFICATION\",\"tenantId\" : \"api_demo_app_keycloak\",\"userIds\" : [\"'+userId+'\"],\"notificationTypes\" : [\"EMAIL\"]\"applicationScope\":\"demo\",\"notificationMessage\" : \"Phoenix Test message\",\"subject\" : \"Test Phoenix Demo app Subject\",\"fcmOptions\" : {\"timeToLive\" : 2400000, \"isNotification\" : true,\"priority\" : \"NORMAL\"}}' ,
+        body:  '{\"scope\": \"NOTIFICATION\",\"tenantId\" : \"api_demo_app_keycloak\",\"userIds\" : [\"'+userId+'\"],\"notificationTypes\" : [\"EMAIL\"],\"applicationScope\":\"demo\",\"notificationMessage\" : \"Phoenix Test message\",\"subject\" : \"Test Phoenix Demo app Subject\",\"fcmOptions\" : {\"timeToLive\" : 2400000, \"isNotification\" : true,\"priority\" : \"NORMAL\"}}' ,
     });
-    alert("Email sent to "+emailAddress+", tenant "+tenant+"!"); 
+    alert("Email sent to "+emailAddress+", "+tenant+"!"); 
 
 }
