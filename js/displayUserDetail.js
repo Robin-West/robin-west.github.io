@@ -50,3 +50,14 @@ function showUserDetail(data)
     document.getElementById("address").innerText = data.addresses[0].address;
 
 }
+
+function sendEmail()
+{
+  if (JSON.stringify(data).startsWith("Error")){
+    document.getElementById("error").textContent = JSON.stringify(data);
+    return;
+  }
+  //send email and popup/notify as sent
+  //data.email
+
+}

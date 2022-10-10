@@ -97,6 +97,7 @@ async function refresh(){
 function verifyToken(callback) {
   const url = "https://stage-api.zebra.com/v2/phoenixDemoApp/identity/oauth/token/verify";
   value = getCookie("token");
+  //value = "778437c2-d70f-4aca-b27b-0f4ef08109cb";
 
   fetch(url, {
       method : "POST",
