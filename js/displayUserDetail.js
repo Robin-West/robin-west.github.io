@@ -62,15 +62,26 @@ function sendEmail()
     value = getCookie("token");
     //value = "778437c2-d70f-4aca-b27b-0f4ef08109cb";
   
+    // fetch(url, {
+    //     method : "POST",
+    //     mode: 'cors',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Authorization': value
+    //     },
+    //     body:  '{\"scope\": \"NOTIFICATION\",\"tenantId\" : \"api_demo_app_keycloak\",\"userIds\" : [\"'+userId+'\"],\"notificationTypes\" : [\"EMAIL\"],\"applicationScope\":\"demo\",\"notificationMessage\" : \"Phoenix Test message\",\"subject\" : \"Test Phoenix Demo app Subject\",\"fcmOptions\" : {\"timeToLive\" : 2400000, \"isNotification\" : true,\"priority\" : \"NORMAL\"}}' ,
+    // });
+
     fetch(url, {
-        method : "POST",
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': value
-        },
-        body:  '{\"scope\": \"NOTIFICATION\",\"tenantId\" : \"api_demo_app_keycloak\",\"userIds\" : [\"'+userId+'\"],\"notificationTypes\" : [\"EMAIL\"],\"applicationScope\":\"demo\",\"notificationMessage\" : \"Phoenix Test message\",\"subject\" : \"Test Phoenix Demo app Subject\",\"fcmOptions\" : {\"timeToLive\" : 2400000, \"isNotification\" : true,\"priority\" : \"NORMAL\"}}' ,
-    });
+      method : "POST",
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': value
+      },
+      body:  '{\"userIds\": [\"'+userId+'\"],\"deviceIds\": [],\"notificationTypes\": [\"EMAIL\"],\"scope\": \"NOTIFICATION\",\"tenantId\": \"api_demo_app_keycloak\",\"applicationScope\": \"demo\",\"notificationMessage\": \"Hello from Phoenix Demo\",\"subject\": \"Phoenix Demo Test\"}',
+  });
+
     alert("Email sent to "+emailAddress+", "+tenant+"!"); 
 
 }
