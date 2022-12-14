@@ -8,43 +8,61 @@
     <title>SWS Platform Demo - UserList</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+
+    <meta name="theme-color" content="#712cf9">
+    <!-- Custom styles for this template -->
+    <!--link href="./css/cover.css" rel="stylesheet"-->
+    <!--link href="sticky-footer.css" rel="stylesheet"-->
+    <style>
+        .bg-white {
+            color:black;
+        }
+    </style>
 </head>
-<body>
-    <h1 id="top">
-        Not Logged In
-    </h1>
-    Token will refresh every 5 minutes or so. <br/>
-    <a href="#" onClick="startLogout()" class="btn btn-lg btn-primary">Logout</a>
+<body  class="d-flex h-100 text-center text-bg-dark">
+    <div class="container d-flex p-3 mx-auto flex-column">
+        <header class="row">
+          <div class="col-9">
+            <img src="./img/Zebra_Logo_W.png" alt="Zebra Technologies" width="100px"> 
+            <span class="fs-4">Software and Solutions Platform Demo App - Users</span><br><br>
+          </div>
+          <div class="col-3 text-end">
+            <button type="button" onClick="startLogout()" class="btn btn-outline-primary me-2">Logout</a>
+          </div>
+        </header>
+        <main class="col-12 px-3">
+            <p class="fs-5 text-start" id="tenant">Tenant:</p>
+            <p id="error"> </p>
+            <table class="table table-hover table-striped table-secondary">
+                <thead>
+                    <tr >
+                    <th scope="col">ID</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">View</th>
+                    </tr>
+                </thead>
+                <tbody id="userTable">
+                </tbody>
+            </table>
+        </main>
+        <footer class="footer mt-auto text-white-50">
+            <p id="top">Not Logged In</p>
+            <p>Provided by Zebra Technologies API Managment @c2022 - <a href="https://jira.zebra.com/servicedesk/customer/portal/5/create/53" class="text-white">Issues</a>,  
+              <a href="https://github.com/zebratechnologies" class="text-white">Source Code</a></p>
+        </footer>
+    </div>
+
     <script src="./js/login.js"></script>
     <script src="./js/userList.js"></script>
     <script>
-// set to timing desired for token refresh - real world would be 59 as tokens expire after 60 minutes
-const refreshtime = 1;
 
 window.onload = async function (){
-    //refresh token
-    setTimeout(refresh, (refreshtime*60*1000));
-
-    // TODO: remove once feature complete
-    // only needed for testing to make sure we can verify token is refreshing and user still logged in.
     viewToken();
+    getUsers(showUsers);
 };
-
-// TODO: remove once feature complete
-function viewToken(){
-    let token = getCookie("token");
-    if (0 < token.length)
-    {
-        document.getElementById("top").textContent = "Token: " + token;
-    }
-    else document.getElementById("top").textContent = "Not Logged In";
-}
-
-async function startLogout()
-{
-    await logout();
-    window.location.replace("./Login_UserDemo.html");
-}
         
     </script>
 </body>

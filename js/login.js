@@ -1,36 +1,41 @@
+const client = "APIDemoApp";
+const tenant = "api_demo_app_keycloak";
+// set to timing desired for token refresh - real world would be 59 as tokens expire after 60 minutes
+const refreshtime = 4;
+
 /* https://www.w3schools.com/js/js_cookies.asp */
 function setCookie(cname, cvalue, exhours) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exhours*60*60*1000));
-    let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";Secure;path=/";
-  }
+  const d = new Date();
+  d.setTime(d.getTime() + (exhours*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";Secure;path=/";
+}
 
 /* https://www.w3schools.com/js/js_cookies.asp */
 function getCookie(cname) {
-    let name = cname + "=";
-    let value = "";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        //remove token if expired
-        const d = new Date();
-        const cd = new Date(ca[2]);
-        if (d > cd){
-            value = "";
-            deleteCookie(cname);
-        }
-        else
-            value = c.substring(name.length, c.length);
-      }
+  let name = cname + "=";
+  let value = "";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
     }
-    return value;
+    if (c.indexOf(name) == 0) {
+      //remove token if expired
+      const d = new Date();
+      const cd = new Date(ca[2]);
+      if (d > cd){
+          value = "";
+          deleteCookie(cname);
+      }
+      else
+          value = c.substring(name.length, c.length);
+    }
   }
+  return value;
+}
 
 function deleteCookie(cname)
 {
@@ -38,8 +43,9 @@ function deleteCookie(cname)
 }
 
 function login() {
-//   window.location.replace("https://uat-ssppcorep.pp.zebra.com/api/identity/token/api_demo_app_keycloak?redirectUri=" + window.location.href);
-    window.location.replace("https://uat-ssppcorep.pp.zebra.com/identity/token/api_demo_app_keycloak?redirectUri=" + window.location.href);
+
+//   window.location.replace("https://uat-ssppcorep.pp.zebra.com/api/identity/token/api_demo_app?redirectUri=" + window.location.href);
+    window.location.replace("https://uat-ssppcorep.pp.zebra.com/identity/token/" + tenant + "?redirectUri=" + window.location.href);
 }
 
 function refreshToken(callback) {
@@ -87,4 +93,50 @@ async function logout() {
 async function refresh(){
   await refreshToken(viewToken);
   setTimeout(refresh, (refreshtime*60*1000));
+}
+
+function verifyToken(callback) {
+  const url = "https://stage-api.zebra.com/v2/phoenixDemoApp/identity/oauth/token/verify";
+  value = getCookie("token");
+  //value = "778437c2-d70f-4aca-b27b-0f4ef08109cb";
+
+  fetch(url, {
+      method : "POST",
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: '{\"access_token\": \"'+value+'\"}' ,
+  })
+  .then((response) => {
+      if (!response.ok) {
+          throw new Error(response.error)
+      }
+      return response.json();
+  })
+  .then(data => {
+    setCookie("token",data.token, 1);
+    callback();
+  })
+  .catch(function(error) {
+      deleteCookie("token");
+      callback();
+  });
+}
+
+// TODO: remove once feature complete
+function viewToken(){
+  let token = getCookie("token");
+  if (0 < token.length)
+  {
+      document.getElementById("top").textContent = "Token: " + token;
+  }
+  else document.getElementById("top").textContent = "Not Logged In";
+  document.getElementById("tenant").textContent = "Tenant: " + tenant;
+}
+
+async function startLogout()
+{
+    await logout();
+    window.location.replace("./Login_UserDemo.html");
 }

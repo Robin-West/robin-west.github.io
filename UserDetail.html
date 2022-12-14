@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Shows 3rd party login capabilities of the SWS platform. Access a userlist for a tenant. Select a user, see some basic details, 
+    and send them a pre-formatted test email.">
+    <meta name="author" content="Robin West, Tim Quinnell, Peter Douglas, Jason Ruby">
+    <title>SWS Platform Demo - User Detail</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+
+    <meta name="theme-color" content="#712cf9">
+    <!-- Custom styles for this template -->
+    <!--link href="./css/cover.css" rel="stylesheet"-->
+    <!--link href="sticky-footer.css" rel="stylesheet"-->
+    <style>
+        .bg-white {
+            color:black;
+        }
+    </style>
+</head>
+<body  class="d-flex h-100 text-center text-bg-dark">
+    <div class="container d-flex p-3 mx-auto flex-column">
+        <header class="row">
+            <div class="col-9">
+              <img src="./img/Zebra_Logo_W.png" alt="Zebra Technologies" width="100px"> 
+              <span class="fs-4">Software and Solutions Platform Demo App - Users</span><br><br>
+            </div>
+            <div class="col-3 text-end">
+              <button type="button" onClick="startLogout()" class="btn btn-outline-primary me-2">Logout</button>
+            </div>
+        </header>
+        <main class="col-12 px-3 flex-shrink-0">
+            <p class="fs-5 text-start" id="tenant">Tenant:</p>
+            <button type="button" onClick="back()" class="btn btn-outline-primary">UserList</button>
+            <p id="error"> </p>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">ID:</div>
+                <div class="col-lg-6 themed-grid-col" id="userId"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Name:</div>
+                <div class="col-lg-6 themed-grid-col" id="name"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Email:</div>
+                <div class="col-lg-6 themed-grid-col" id="email"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Location:</div>
+                <div class="col-lg-6 themed-grid-col" id="location"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Site:</div>
+                <div class="col-lg-6 themed-grid-col" id="site"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Department:</div>
+                <div class="col-lg-6 themed-grid-col" id="department"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Contact #:</div>
+                <div class="col-lg-6 themed-grid-col" id="contact"></div>
+            </div>
+            <div class="row mb-3 text-start">
+                <div class="col-lg-6 themed-grid-col">Address:</div>
+                <div class="col-lg-6 themed-grid-col" id="address"></div>
+            </div>
+            <p class="fs-5 text-start" ></p>
+            <button type="button" onClick="sendEmail()" class="btn btn-outline-primary">Send Email</button>
+        </main>
+        <footer class="footer mt-auto text-white-50">
+            <div class="container">
+              <p id="top">Not Logged In</p>
+              <p>Provided by Zebra Technologies API Managment @c2022 - <a href="https://jira.zebra.com/servicedesk/customer/portal/5/create/53" class="text-white">Issues</a>,  
+              <a href="https://github.com/zebratechnologies" class="text-white">Source Code</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./js/login.js"></script>
+    <script src="./js/displayUserDetail.js"></script>
+    <script>
+
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+if (params.userId == null) {
+  //do nothing
+} else {
+    let id = params.userId; // "some_value"
+    window.onload = async function (){
+        viewToken();
+        getUser(id, showUserDetail);
+    };
+}
+
+function back()
+{
+    window.location='./UserList.html';
+}
+  
+</script>
+</body>
+</html>
