@@ -43,6 +43,7 @@ function deleteCookie(cname)
 }
 
 function login() {
+
 //   window.location.replace("https://uat-ssppcorep.pp.zebra.com/api/identity/token/api_demo_app?redirectUri=" + window.location.href);
     window.location.replace("https://uat-ssppcorep.pp.zebra.com/identity/token/" + tenant + "?redirectUri=" + window.location.href);
 }
